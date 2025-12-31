@@ -1,0 +1,37 @@
+# XAMPP / Apache
+.htaccess
+.htpasswd
+
+# PHP
+*.log
+*.cache
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Database (don't commit actual database, only schema)
+# But keep database.sql for setup
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment files
+.env
+config.local.php
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Node modules (if any)
+node_modules/
+
+# Build files
+build/
+dist/
+
