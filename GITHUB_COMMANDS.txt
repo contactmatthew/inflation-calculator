@@ -1,0 +1,29 @@
+Copy and paste these commands one by one in PowerShell (in this folder):
+
+cd "C:\xampp\htdocs\Inflation calculator"
+
+git init
+
+git add .
+
+git commit -m "Initial commit: Inflation Calculator"
+
+git branch -M main
+
+git remote add origin https://github.com/contactmatthew/inflation-calculator.git
+
+git push -u origin main
+
+
+IMPORTANT:
+- When asked for username: contactmatthew
+- When asked for password: Use a Personal Access Token (NOT your regular password)
+
+To create Personal Access Token:
+1. Go to: https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Name: "Inflation Calculator"
+4. Check "repo" scope
+5. Click "Generate token"
+6. Copy the token and use it as password
+
