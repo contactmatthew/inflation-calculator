@@ -43,7 +43,8 @@
             min-height: 100vh;
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
-            padding: 2rem 0;
+            padding-top: 0;
+            padding-bottom: 2rem;
         }
         
         .header-title {
@@ -268,6 +269,88 @@
             color: white;
         }
         
+        /* About Section */
+        .about-section {
+            margin-top: 4rem;
+            padding: 3rem 0;
+        }
+        
+        .about-card {
+            background-color: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .about-card h2 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .about-card h2 i {
+            color: var(--accent-primary);
+        }
+        
+        .about-card h3 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .about-card ul {
+            color: var(--text-secondary);
+            line-height: 2;
+            padding-left: 1.5rem;
+        }
+        
+        .about-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-card ul li i {
+            color: var(--accent-primary);
+            margin-right: 0.5rem;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-badge {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tech-badge i {
+            color: var(--accent-primary);
+        }
+        
         .footer {
             margin-top: 4rem;
             padding: 2rem 0;
@@ -338,6 +421,123 @@
         .social-link.github:hover {
             color: #ffffff;
             border-color: #ffffff;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            color: var(--accent-primary);
+        }
+        
+        .navbar-brand i {
+            color: var(--accent-primary);
+        }
+        
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar-nav li {
+            display: inline-block;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-tertiary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link i {
+            font-size: 1rem;
+        }
+        
+        .navbar-toggler {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: none;
+            cursor: pointer;
+        }
+        
+        .navbar-collapse {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: block;
+            }
+            
+            .navbar-collapse {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+                gap: 0.5rem;
+            }
+            
+            .navbar-nav.show {
+                display: flex;
+            }
+            
+            .navbar-nav li {
+                width: 100%;
+            }
+            
+            .nav-link {
+                width: 100%;
+                justify-content: flex-start;
+            }
         }
         
         /* Floating QR Code Button */
@@ -455,7 +655,54 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-collapse">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-calculator"></i>
+                    Inflation Calculator
+                </a>
+                <button class="navbar-toggler" type="button" onclick="toggleNavbar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-nav" id="navbarNav">
+                    <li>
+                        <a class="nav-link" href="#calculator">
+                            <i class="fas fa-calculator"></i>
+                            Calculator
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://github.com/contactmatthew/inflation-calculator" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://buymeacoffee.com/isshiki" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-coffee"></i>
+                            Buy Coffee
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#donationModal">
+                            <i class="bi bi-heart-fill"></i>
+                            Donate
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="calculator">
         <h1 class="header-title">
             <i class="fas fa-calculator"></i> Inflation Calculator
         </h1>
@@ -531,6 +778,79 @@
             </div>
         </div>
         
+        <!-- About Section -->
+        <div class="about-section" id="about">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="about-card">
+                            <h2>
+                                <i class="fas fa-info-circle"></i>
+                                About Inflation Calculator
+                            </h2>
+                            
+                            <p>
+                                The <strong>Inflation Calculator</strong> is a professional web application designed to help you understand how inflation affects the purchasing power of money across different countries and currencies. Whether you're planning investments, comparing costs, or simply curious about economic trends, this tool provides accurate, real-time calculations.
+                            </p>
+                            
+                            <h3><i class="fas fa-star"></i> Key Features</h3>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>Multi-Country Support:</strong> Calculate inflation for 20+ countries including the Philippines, United States, United Kingdom, and more</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Currency Flexibility:</strong> Calculate in any supported currency with automatic exchange rate conversion</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Real-Time Data:</strong> Automatically fetches the latest inflation rates from reliable API sources</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Smart Caching:</strong> Optimized performance with intelligent data caching (7-day refresh cycle)</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>User-Friendly Interface:</strong> Modern dark mode design with intuitive controls</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Accurate Calculations:</strong> Uses official inflation data and real-time exchange rates</li>
+                            </ul>
+                            
+                            <h3><i class="fas fa-cogs"></i> How It Works</h3>
+                            <p>
+                                The calculator uses historical inflation data to determine how much a specific amount of money from a past date would be worth today. It combines:
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-chart-line"></i> Monthly inflation rates for the selected country</li>
+                                <li><i class="fas fa-exchange-alt"></i> Real-time currency exchange rates</li>
+                                <li><i class="fas fa-calculator"></i> Compound inflation calculations over the selected time period</li>
+                            </ul>
+                            
+                            <h3><i class="fas fa-code"></i> Technologies Used</h3>
+                            <div class="tech-badges">
+                                <span class="tech-badge"><i class="fab fa-html5"></i> HTML5</span>
+                                <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                                <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+                                <span class="tech-badge"><i class="fab fa-php"></i> PHP 7.4+</span>
+                                <span class="tech-badge"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="tech-badge"><i class="fab fa-bootstrap"></i> Bootstrap 5</span>
+                                <span class="tech-badge"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                                <span class="tech-badge"><i class="fab fa-font-awesome"></i> Font Awesome</span>
+                            </div>
+                            
+                            <h3><i class="fas fa-database"></i> Data Sources</h3>
+                            <ul>
+                                <li><i class="fas fa-globe"></i> <strong>ExchangeRate-API:</strong> Real-time currency exchange rates</li>
+                                <li><i class="fas fa-chart-bar"></i> <strong>Statbureau.org:</strong> Official inflation rate data</li>
+                            </ul>
+                            
+                            <h3><i class="fas fa-user"></i> About the Developer</h3>
+                            <p>
+                                Made with <i class="fas fa-heart" style="color: #ef4444;"></i> by <strong>James Matthew Dela Torre</strong>
+                            </p>
+                            <p>
+                                This project is open-source and free to use. If you find it helpful, consider supporting the development through donations or by starring the project on GitHub!
+                            </p>
+                            
+                            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0;">
+                                    <i class="fas fa-info-circle" style="color: var(--accent-primary);"></i>
+                                    <strong>Note:</strong> Inflation rates are automatically updated weekly. Exchange rates are cached for performance and updated as needed. All calculations are estimates based on available data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -587,6 +907,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Navbar toggle function for mobile
+        function toggleNavbar() {
+            const navbarNav = document.getElementById('navbarNav');
+            navbarNav.classList.toggle('show');
+        }
+        
+        // Close navbar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const navbarNav = document.getElementById('navbarNav');
+            
+            if (window.innerWidth <= 768) {
+                if (!navbar.contains(event.target) && navbarNav.classList.contains('show')) {
+                    navbarNav.classList.remove('show');
+                }
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#donationModal') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        const navbarNav = document.getElementById('navbarNav');
+                        if (navbarNav.classList.contains('show')) {
+                            navbarNav.classList.remove('show');
+                        }
+                    }
+                }
+            });
+        });
+        
         document.getElementById('toDate').valueAsDate = new Date();
         const oneYearAgo = new Date();
         oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
