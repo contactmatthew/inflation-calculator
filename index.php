@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -338,6 +339,119 @@
             color: #ffffff;
             border-color: #ffffff;
         }
+        
+        /* Floating QR Code Button */
+        .floating-qr-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .floating-qr-button:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.6);
+            background: linear-gradient(135deg, #f87171, #ef4444);
+        }
+        
+        .floating-qr-button:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .floating-qr-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Donation Modal Styles */
+        .donation-modal {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .donation-modal .modal-header {
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-tertiary);
+        }
+        
+        .donation-modal .modal-title {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .donation-modal .btn-close-white {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+        
+        .donation-modal .modal-body {
+            background-color: var(--bg-secondary);
+        }
+        
+        .thank-you-message {
+            margin-bottom: 1.5rem;
+        }
+        
+        .thank-you-icon {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .thank-you-text {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .qr-code-container {
+            display: inline-block;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 12px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .qr-code-image {
+            max-width: 250px;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 576px) {
+            .qr-code-image {
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -438,6 +552,36 @@
                 </div>
             </div>
         </footer>
+    </div>
+    
+    <!-- Floating QR Code Button -->
+    <button type="button" class="floating-qr-button" data-bs-toggle="modal" data-bs-target="#donationModal" aria-label="Donate">
+        <i class="bi bi-heart-fill"></i>
+    </button>
+    
+    <!-- Donation Modal -->
+    <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content donation-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationModalLabel">
+                        <i class="bi bi-heart-fill text-danger"></i> Support Inflation Calculator
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="thank-you-message">
+                        <i class="bi bi-heart-fill thank-you-icon"></i>
+                        <h4 class="thank-you-text">Thank You!</h4>
+                    </div>
+                    <p class="mb-2 small">Scan the QR code to make a donation</p>
+                    <div class="qr-code-container">
+                        <img src="donate.jpg" alt="Donation QR Code" class="qr-code-image">
+                    </div>
+                    <p class="mt-2 mb-0 text-muted small">Your support helps keep Inflation Calculator running!</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
