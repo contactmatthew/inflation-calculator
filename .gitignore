@@ -35,3 +35,36 @@ node_modules/
 build/
 dist/
 
+# Documentation files (keep only README.md)
+GITHUB_*.md
+GITHUB_*.txt
+QUICK_*.md
+INSTALLATION.md
+DEPLOYMENT_*.md
+FIX_*.md
+*_INSTRUCTIONS.md
+*_SETUP.md
+COMMIT_*.txt
+
+# Batch/script files
+*.bat
+upload_*.bat
+commit_*.bat
+
+# One-time setup/test scripts
+setup.php
+add_*.php
+check_*.php
+*_test.php
+test_*.php
+quick_*.php
+
+# Hosting-specific configs
+config.*.php
+config.production.example.php
+
+# Database files (keep only main database.sql)
+database.*.sql
+fix_*.sql
+insert_*.sql
+
