@@ -1,8 +1,8 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'inflation_calculator');
+define('DB_HOST', 'localhost'); //change this using your data host 
+define('DB_USER', 'root'); // your hosting user
+define('DB_PASS', ''); // your hosting database pass
+define('DB_NAME', 'inflation_calculator');  //your hosting database name
 
 define('EXCHANGE_RATE_API_KEY', 'free');
 define('EXCHANGE_RATE_API_URL', 'https://api.exchangerate-api.com/v4/latest/');
